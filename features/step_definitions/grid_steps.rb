@@ -34,3 +34,11 @@ end
 Then /^there should be (\d+) cells$/ do |arg1|
   @grid.cell_count.should == 36
 end
+
+When /^I seed the grid with a live cell at (\d+), (\d+)$/ do |x, y|
+  @grid.seed [[x.to_i, y.to_i]]
+end
+
+Then /^the cell at (\d+), (\d+) should be alive$/ do |x, y|
+  @grid.cell_at(x.to_i, y.to_i).alive?.should be_true
+end
