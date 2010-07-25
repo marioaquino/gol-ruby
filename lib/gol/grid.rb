@@ -1,10 +1,10 @@
 class Grid
   def initialize(rows, columns)
-    @cells = Array.new(rows)
-    @cells.map! {Array.new(columns){ Cell.new }}
+    initialize_grid rows, columns
   end
   
   def seed(live_cells = [])
+    initialize_grid(rows, columns)
     live_cells.each{|coord| x, y = *coord; @cells[x][y] = Cell.new(true)}
   end
   
@@ -26,5 +26,11 @@ class Grid
   
   def cell_at(x, y)
     @cells[x][y]
+  end
+  
+  private
+  def initialize_grid(rows, columns)
+    @cells = Array.new(rows)
+    @cells.map! {Array.new(columns){ Cell.new }}
   end
 end

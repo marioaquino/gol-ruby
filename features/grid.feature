@@ -6,18 +6,6 @@ Scenario: Creating a grid
 	When I create the grid
 	Then the grid should have 6 rows and 6 columns
 	
-Scenario: Seeding a grid with nothing
-  Given I have a grid with 6 rows and 6 columns
-  When I seed the grid with an empty list of live cells
-	Then there should be 36 cells
-  And all cells should be dead
-
-Scenario: Seeding a grid with 1 cell
-  Given I have a grid with 6 rows and 6 columns
-  When I seed the grid with a live cell at 3, 3
-	Then there should be 36 cells
-  And the cell at 3, 3 should be alive
-
 
 # Feature: The Game of Life defines a grid where cells can live or die based
 # 	on rules related to their positions on the grid and whether they have neighbors.
