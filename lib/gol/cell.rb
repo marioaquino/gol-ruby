@@ -3,6 +3,10 @@ class Cell
     @alive = alive
   end
   
+  def kill!
+    @alive = false
+  end
+  
   def alive?
     @alive
   end

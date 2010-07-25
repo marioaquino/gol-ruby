@@ -9,7 +9,7 @@ class Grid
   end
   
   def evolve
-    
+    each_cell {|cell| cell.kill! }
   end
   
   def cell_count

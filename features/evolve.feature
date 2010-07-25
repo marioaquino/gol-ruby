@@ -8,5 +8,12 @@ Scenario: Evolving a grid of no live cells
   When I tell the grid to evolve
   Then all cells should be dead
 
+Scenario: Evolving a grid with only 1 live cell
+  Given I have a grid with 6 rows and 6 columns
+	And I seed the grid with a live cell at 2, 2
+  When I tell the grid to evolve
+  Then all cells should be dead
+
+
 
 
