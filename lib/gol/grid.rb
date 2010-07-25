@@ -8,6 +8,10 @@ class Grid
     live_cells.each{|coord| x, y = *coord; @cells[x][y] = Cell.new(true)}
   end
   
+  def evolve
+    
+  end
+  
   def cell_count
     @cells.size * @cells[0].size
   end

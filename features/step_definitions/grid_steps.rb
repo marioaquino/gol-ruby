@@ -42,3 +42,7 @@ end
 Then /^the cell at (\d+), (\d+) should be alive$/ do |x, y|
   @grid.cell_at(x.to_i, y.to_i).alive?.should be_true
 end
+
+When /^I tell the grid to evolve$/ do
+  @grid.evolve
+end
