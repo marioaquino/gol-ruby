@@ -3,8 +3,8 @@ module GOL
     
     def neighbors_of(x, y)
       r, c = rows, columns
-      neighbors(x, y).each {|point|
-        yield *point if passes_neighbors_checks(r, c, point)
+      neighbors(x, y).select {|point|
+        passes_neighbors_checks(r, c, point)
       }
     end
     

@@ -8,12 +8,10 @@ describe GOL::GridWalker do
     grid.extend(GOL::GridWalker)
     
     def grid.foo
-      neighbors_of(0, 0) { |x, y|
-        fail "1x1 grid has no neighbors"
-      }
+      neighbors_of(0, 0)
     end
     
-    grid.foo
+    grid.foo.should be_empty
   end
   
   context "in a 3x3 grid" do
@@ -26,11 +24,7 @@ describe GOL::GridWalker do
     
     def neighbor_sets(x, y)
       def @grid.foo(x, y)
-        neighbor_sets = []
-        neighbors_of(x, y) { |x, y|
-          neighbor_sets << [x, y]
-        }
-        neighbor_sets
+        neighbors_of(x, y)
       end
       @grid.foo(x, y)
     end
