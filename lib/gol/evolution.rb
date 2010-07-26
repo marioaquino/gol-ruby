@@ -27,4 +27,11 @@ module GOL
     
     module_function :neighbors_of
   end
+  
+  module Rule1
+    def self.evaluate(neighbors = [])
+      return false if neighbors.size < 2
+      neighbors.reduce(0) {|counter, cell| counter + (cell.alive? ? 1 : 0)} > 1
+    end
+  end
 end

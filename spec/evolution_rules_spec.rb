@@ -1,48 +1,37 @@
 require 'spec_config'
 
-describe GOL::GridWalker do
-  it "should know a 1x1 grid has no neighbors" do
-    grid = Object.new
-    grid.should_receive(:rows).and_return(1)
-    grid.should_receive(:columns).and_return(1)
-    grid.extend(GOL::GridWalker)
-    
-    def grid.foo
-      neighbors_of(0, 0)
-    end
-    
-    grid.foo.should be_empty
+describe GOL::Rule1 do
+  it "should know there are fewer than 2 live neighbors when called w/out any cells" do
+    GOL::Rule1.evaluate().should be_false
   end
   
-  context "in a 3x3 grid" do
-    before(:each) do
-      @grid = Object.new
-      @grid.should_receive(:rows).and_return(3)
-      @grid.should_receive(:columns).and_return(3)
-      @grid.extend(GOL::GridWalker)
-    end
-    
-    def neighbor_sets(x, y)
-      def @grid.foo(x, y)
-        neighbors_of(x, y)
-      end
-      @grid.foo(x, y)
-    end
-    
-    it "should know all the neighbors of the center cell" do
-      neighbor_sets(1, 1).should == [[0, 0], [0, 1], [0, 2], 
-                                     [1, 0],         [1, 2], 
-                                     [2, 0], [2, 1], [2, 2]]
-    end
-    
-    it "should know all the neighbors of the bottom-right cell" do
-      neighbor_sets(2, 2).should == [[1, 1], [1, 2], 
-                                     [2, 1]]
-    end
-    
-    it "should know all the neighbors of the top-left cell" do
-      neighbor_sets(0, 0).should == [        [0, 1], 
-                                     [1, 0], [1, 1]]
-    end
+  it "should know there are fewer than 2 live neighbors when called w <2 neighbors" do
+    GOL::Rule1.evaluate(["foo"]).should be_false
+  end
+  
+  def dead(name)
+    mock_cell(name, false)
+  end
+  
+  def mock_cell(name, alive_return)
+    m = mock(name)
+    m.should_receive(:alive?).and_return(alive_return)
+    m
+  end
+  
+  def alive(name)
+    mock_cell(name, true)
+  end
+  
+  it "should know there are fewer than 2 live neighbors when called w 1 dead and 1 live neighbor" do
+    cell1 = alive('c1')
+    cell2 = dead('c2')
+    GOL::Rule1.evaluate([cell1, cell2]).should be_false
+  end
+  
+  it "should know there are 2 live neighbors when called w 2 live neighbors" do
+    cell1 = alive('c1')
+    cell2 = alive('c2')
+    GOL::Rule1.evaluate([cell1, cell2]).should be_true
   end
 end
