@@ -51,4 +51,11 @@ module GOL
       live_cell_count(neighbors) < 4
     end
   end
+  
+  class Rule3 < Countable
+    def self.evaluate(neighbors = [])
+      live = live_cell_count(neighbors)
+      live == 2 || live == 3 
+    end
+  end
 end

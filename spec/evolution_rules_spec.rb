@@ -57,3 +57,25 @@ describe GOL::Rule2 do
     GOL::Rule2.evaluate(set(true, true, true, true)).should be_false
   end
 end
+
+describe GOL::Rule3 do
+  it "should not be satisfied if there are no live neighbors" do
+    GOL::Rule3.evaluate.should be_false
+  end
+  
+  it "should not be satisfied if there is 1 neighbor" do
+    GOL::Rule3.evaluate(set(true)).should be_false
+  end
+  
+  it "should be satisfied if there are 2 live neighbors" do
+    GOL::Rule3.evaluate(set(true, true)).should be_true
+  end
+  
+  it "should be satisfied if there are 3 live neighbors" do
+    GOL::Rule3.evaluate(set(true, true, true)).should be_true
+  end
+  
+  it "should not be satisfied if there are 3 dead neighbors" do
+    GOL::Rule3.evaluate(set(false, false, false)).should be_false
+  end
+end
