@@ -1,4 +1,8 @@
 module GOL
+  # def live_counter(neighbors)
+  #   neighbors.reduce(0) {|counter, cell| counter + (cell.alive? ? 1 : 0)}
+  # end
+  
   module GridWalker
     
     def neighbors_of(x, y)
@@ -28,10 +32,23 @@ module GOL
     module_function :neighbors_of
   end
   
-  module Rule1
+  class Countable
+    def self.live_cell_count(neighbors)
+      neighbors.reduce(0) {|counter, cell| counter + (cell.alive? ? 1 : 0)}
+    end
+  end
+  
+  class Rule1 < Countable
     def self.evaluate(neighbors = [])
       return false if neighbors.size < 2
-      neighbors.reduce(0) {|counter, cell| counter + (cell.alive? ? 1 : 0)} > 1
+      live_cell_count(neighbors) > 1
+    end
+  end
+  
+  class Rule2 < Countable
+    def self.evaluate(neighbors = [])
+      return true if neighbors.size < 4
+      live_cell_count(neighbors) < 4
     end
   end
 end
