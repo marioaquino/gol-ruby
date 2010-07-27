@@ -7,7 +7,15 @@ class Cell
     @alive = false
   end
   
+  def revive!
+    @alive = true
+  end
+  
   def alive?
     @alive
+  end
+  
+  def evolve
+    @alive = !@alive
   end
 end

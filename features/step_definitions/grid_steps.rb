@@ -28,7 +28,7 @@ When /^I seed the grid with an empty list of live cells$/ do
 end
 
 Then /^all cells should be dead$/ do
-  @grid.each_cell {|cell| cell.alive?.should be_false }
+  @grid.each_cell {|cell, x, y| cell.alive?.should be_false }
 end
 
 Then /^there should be (\d+) cells$/ do |arg1|
