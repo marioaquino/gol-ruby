@@ -7,6 +7,9 @@ Feature: Viewing Game of Life on the web
     Given I have a browser
     When I visit "/"
     Then I should see "Welcome to Game of Life"
-  
+  	And I should see "Setup board with rows and columns"
+		And I should see a field labeled "Rows:" with the value "0"
+		And I should see a field labeled "Columns:" with the value "0"
+		And I should see a "Create Grid" button
   
   
