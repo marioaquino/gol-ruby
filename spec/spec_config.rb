@@ -1,2 +1,2 @@
-require File.join(File.dirname(__FILE__), "/../features/support/env")
+require File.join(File.dirname(__FILE__), "/../lib/gol")
 

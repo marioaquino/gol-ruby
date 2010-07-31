@@ -11,12 +11,12 @@ config_path = File.join(cuk_dir_name, "/../../")
 
 require 'gol'
 require 'rubygems'
-# The below are explicitly required because loading Bundler instead adds
-# 3 seconds to the load time.  EPIC FAIL!
-require 'webrat'
-require 'rack/test'
+require 'bundler'
 require 'sinatra'
 require 'haml'
+
+Bundler.require(:test)
+
 require 'app'
 
 Sinatra::Application.app_file = 'app'
