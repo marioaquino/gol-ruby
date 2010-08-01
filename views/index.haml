@@ -1,18 +1,11 @@
-!!!
-%html
-	%head
-	%body
-		%h1
-			Welcome to Game of Life
-		%h2
-			Setup board with rows and columns
-		%form
-			%ul
-				%li
-					%label{:for => "rows"} Rows:
-					%input{:type => "text", :id => "rows", :value => "0"}
-				%li				
-					%label{:for => "columns"} Columns:
-					%input{:type => "text", :id => "columns", :value => "0"}
-			%input{:type => "submit", :value => "Create Grid"}
+%h2	Setup board with rows and columns
+%form{:method => 'GET', :action => "/seed"}
+	%ul
+		%li
+			%label{:for => "rows"} Rows:
+			%input{:type => "text", :id => "rows", :name => "rows", :value => "0"}
+		%li				
+			%label{:for => "columns"} Columns:
+			%input{:type => "text", :id => "columns", :name => "columns", :value => "0"}
+	%input{:type => "submit", :value => "Create Grid"}
 			

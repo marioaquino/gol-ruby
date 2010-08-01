@@ -12,4 +12,16 @@ Feature: Viewing Game of Life on the web
 		And I should see a field labeled "Columns:" with the value "0"
 		And I should see a "Create Grid" button
   
+	Scenario: Create a grid of rows and columns
+	  Given I visit "/"
+	  When I set the field labeled "Rows:" with the value "6"
+	  And I set the field labeled "Columns:" with the value "6"
+		And I press the "Create Grid" button
+		Then I should be on the "/seed" page
+		And I should see "Click on the white squares to seed the grid with live cells"
+		And I should see a table named "grid" with 6 rows and 6 columns
+		And I should see a "Seed Grid" button
+	
+	
+	
   
