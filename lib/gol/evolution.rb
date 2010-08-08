@@ -24,8 +24,6 @@ module GOL
       return false if point[1] >= columns
       point.none? {|c| c < 0}
     end
-    
-    module_function :neighbors_of
   end
   
   class Countable
