@@ -6,8 +6,7 @@ class Grid
   end
   
   def seed(live_cells = [])
-    each_cell {|cell, x, y| cell.kill! }
-    live_cells.each{|point| cell_at(*point).revive! }
+    each_cell {|cell, x, y| live_cells.include?([x, y]) ? cell.revive! : cell.kill! }
   end
   
   def evolve

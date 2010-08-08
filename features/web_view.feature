@@ -22,6 +22,16 @@ Feature: Viewing Game of Life on the web
 		And I should see a table named "grid" with 6 rows and 6 columns
 		And I should see a "Seed Grid" button
 	
+	@selenium
+	Scenario: Selecting the live cells to seed the grid
+	  Given I have setup a grid with 6 rows and 6 columns
+	  When I click on the cell at 1,2
+		And I click on the cell at 2,3
+		And I click on the cell at 3,2
+	  Then the cells at "1,2 & 2,3 & 3,2" should be alive
+		And all other cells should be dead
+	
+	
 	
 	
   

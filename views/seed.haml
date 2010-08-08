@@ -5,4 +5,5 @@
 			%tr
 				- (0...@columns).each do |column|
 					%td
+						%input{:id => "#{row}_#{column}", :type => 'checkbox'}
 	%input{:type => 'submit', :value => 'Seed Grid'}

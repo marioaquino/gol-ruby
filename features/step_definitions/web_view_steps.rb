@@ -37,3 +37,29 @@ Then /^I should see a table named "([^"]*)" with (\d+) rows and (\d+) columns$/ 
     end
   end
 end
+
+Given /^I have setup a grid with (\d+) rows and (\d+) columns$/ do |rows, cols|
+  visit '/'
+  fill_in 'Rows:', :with => rows
+  fill_in 'Columns:', :with => cols
+  click_button 'Create Grid'
+end
+
+When /^I click on the cell at (\d+),(\d+)$/ do |x, y|
+  check "#{x}_#{y}"
+end
+
+Then /^the cells at "([^"]*)" should be alive$/ do |live_cells|
+  @live_points = live_cells.split(' & ').map{|pair| pair.gsub(',', '_')}.flatten
+  @live_points.each do |point| 
+    page.find_field(point)[:checked].should be_true
+  end
+end
+
+Then /^all other cells should be dead$/ do
+  page.all("//input[@type='checkbox']").each do |field|
+    coordinates = field[:id]
+    field[:checked].should be_nil unless @live_points.include?(coordinates)
+  end
+end
+

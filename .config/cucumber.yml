@@ -1,9 +1,10 @@
 <% 
 rerun = File.file?('rerun.txt') ? IO.read('rerun.txt') : ""
 rerun_opts = rerun.to_s.strip.empty? ? "--format progress features" : "--format pretty #{rerun}"
-std_opts = "#{rerun_opts} --format rerun --out rerun.txt --strict --tags ~@wip"
+std_opts = "#{rerun_opts} -r features/support/env.rb -r features/step_definitions --format rerun --out rerun.txt --strict --tags ~@wip,~@selenium"
 %>
-default: <%= std_opts %>
-wip: --tags @wip:3 --wip features
 html_report: --format progress --format html --out=features_report.html features
 none: --format pretty
+wip: --tags @wip:3 --wip features
+selenium: --tags @selenium -r features/support/selenium.rb -r features/step_definitions
+default: <%= std_opts %>
