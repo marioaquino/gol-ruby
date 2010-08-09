@@ -14,6 +14,10 @@ dependencies:
     group: 
     - :default
     version: = 3.0.15
+  sinatra-reloader: 
+    group: 
+    - :development
+    version: ">= 0"
   rspec: 
     group: 
     - :test
@@ -57,6 +61,8 @@ specs:
     version: 4.3.2
 - autotest-growl: 
     version: 0.2.4
+- backports: 
+    version: 1.18.1
 - builder: 
     version: 2.1.2
 - culerity: 
@@ -72,7 +78,7 @@ specs:
 - ffi: 
     version: 0.6.3
 - json_pure: 
-    version: 1.4.5
+    version: 1.4.6
 - rubyzip: 
     version: 0.9.4
 - selenium-webdriver: 
@@ -103,6 +109,8 @@ specs:
     version: 3.0.15
 - linecache: 
     version: "0.43"
+- monkey-lib: 
+    version: 0.5.2
 - rspec: 
     version: 1.3.0
 - ruby-debug-base: 
@@ -111,7 +119,13 @@ specs:
     version: 0.10.3
 - sinatra: 
     version: "1.0"
-hash: 75422b3c71a50e4afb99d60a5bfa0fb5254f9b5b
+- sinatra-sugar: 
+    version: 0.5.0
+- sinatra-advanced-routes: 
+    version: 0.5.1
+- sinatra-reloader: 
+    version: 0.5.0
+hash: 43b5ef52491a09df9b2511ff80292fc3dd945c24
 sources: 
 - Rubygems: 
     uri: http://gemcutter.org
