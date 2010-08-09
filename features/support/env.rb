@@ -18,24 +18,8 @@ require 'haml'
 Bundler.require(:test)
 
 require 'app'
-
 Sinatra::Application.app_file = 'app'
 
-Webrat.configure do |config|
-  config.mode = :rack
-end
+require 'capybara/cucumber'
 
-class MyWorld
-  include Rack::Test::Methods
-  include Webrat::Methods
-  include Webrat::Matchers
-
-  Webrat::Methods.delegate_to_session :response_code, :response_body
-  
-  def app
-    Sinatra::Application.tap {|app| app.set :environment, :test }
-  end
-
-end
-
-World{MyWorld.new}
+Capybara.app = Sinatra::Application.new

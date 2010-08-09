@@ -13,5 +13,8 @@ require 'app'
 set :views, Proc.new { File.join(File.dirname(__FILE__), "/../../views") }
 
 Capybara.app = Sinatra::Application.new
-Capybara.default_driver = :selenium
+# Capybara.default_driver = :selenium
+
+Capybara.javascript_driver = :envjs
+
 
