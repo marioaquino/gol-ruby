@@ -15,5 +15,8 @@ group :test do
   gem 'autotest-growl', '0.2.4'
   gem 'capybara', '0.3.9'
   gem 'capybara-envjs', '0.1.6', :require => 'capybara/envjs'
+end
+
+group :test, :development do
   gem 'ruby-debug', '0.10.3'
 end

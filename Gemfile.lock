@@ -3,6 +3,7 @@ dependencies:
   ruby-debug: 
     group: 
     - :test
+    - :development
     version: = 0.10.3
   ZenTest: 
     group: 
@@ -125,7 +126,7 @@ specs:
     version: 0.5.1
 - sinatra-reloader: 
     version: 0.5.0
-hash: 43b5ef52491a09df9b2511ff80292fc3dd945c24
+hash: 4b94ef81ccce0c0d55a70a64044215e815661016
 sources: 
 - Rubygems: 
     uri: http://gemcutter.org
