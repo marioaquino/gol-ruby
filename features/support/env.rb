@@ -12,14 +12,17 @@ config_path = File.join(cuk_dir_name, "/../../")
 require 'gol'
 require 'rubygems'
 require 'bundler'
-require 'sinatra'
-require 'haml'
 
 Bundler.require(:test)
+
+require 'sinatra'
+require 'haml'
 
 require 'app'
 Sinatra::Application.app_file = 'app'
 
 require 'capybara/cucumber'
-
 Capybara.app = Sinatra::Application.new
+Capybara.javascript_driver = :envjs
+
+require 'ruby-debug'

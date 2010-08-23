@@ -31,7 +31,9 @@ Then /^I should be on the "([^\"]*)" page$/ do |path|
 end
 
 Then /^I should see a table named "([^"]*)" with (\d+) rows and (\d+) columns$/ do |name, rows, cols|
-  all("//table[@name = '#{name}']").each do |table|
+  tables = all("//table[@name = '#{name}']")
+  tables.should_not be_empty
+  tables.each do |table|
     all_rows = table.all(".//tr")
     all_rows.size.should == rows.to_i
     all_rows.first.all(".//td").size.should == cols.to_i
@@ -63,3 +65,19 @@ Then /^all other cells should be dead$/ do
   end
 end
 
+Given /^I have seeded a (\d+) by (\d+) grid with live cells at the following locations:$/ do |rows, cols, table|
+  Given "I have setup a grid with #{rows} rows and #{cols} columns"
+  table.rows.each_with_index do |row, row_index|
+    row.each_with_index do |column, column_index|
+      When "I click on the cell at #{row_index},#{column_index}" if column == "X"
+    end
+  end
+end
+
+Then /^I should see the following live and dead cells on the grid:$/ do |table|
+  table.rows.each_with_index do |row, row_index|
+    row.each_with_index do |column, column_index|
+      find("//div[@id='#{row_index}_#{column_index}']").text.should == column
+    end
+  end
+end

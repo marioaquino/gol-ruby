@@ -3,9 +3,8 @@ source 'http://gemcutter.org'
 gem 'sinatra', '1.0'
 gem 'haml', '3.0.15'
 
-group :development do
-  gem 'sinatra-reloader'
-end
+gem 'sinatra-reloader', :group => :development
+gem 'ruby-debug', '0.10.3', :group => [:development, :test]
 
 group :test do
   gem 'cucumber', '0.8.5'
@@ -15,8 +14,4 @@ group :test do
   gem 'autotest-growl', '0.2.4'
   gem 'capybara', '0.3.9'
   gem 'capybara-envjs', '0.1.6', :require => 'capybara/envjs'
-end
-
-group :test, :development do
-  gem 'ruby-debug', '0.10.3'
 end

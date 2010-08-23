@@ -1,9 +1,11 @@
 %h2 Click on the white squares to seed the grid with live cells
-%form
+%form{:method => 'POST', :action => '/evolution'}
+	%input{:name => 'rows', :type => 'hidden', :value => @rows}
+	%input{:name => 'columns', :type => 'hidden', :value => @columns}
 	%table{:name => 'grid', :border => '1'}
 		- (0...@rows).each do |row|
 			%tr
 				- (0...@columns).each do |column|
 					%td
-						%input{:id => "#{row}_#{column}", :type => 'checkbox'}
+						%input{:id => "#{row}_#{column}", :name => "#{row}_#{column}", :type => 'checkbox'}
 	%input{:type => 'submit', :value => 'Seed Grid'}
