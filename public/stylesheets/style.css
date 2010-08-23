@@ -1,0 +1,12 @@
+div {
+	height: 20px; 
+	width: 20px;
+}
+
+.alive {
+	background-color: black;
+}
+
+.dead {
+	background-color: white;
+}

@@ -3,4 +3,4 @@
 		%tr
 			- (0...@grid.columns).each do |column|
 				%td
-					%div{:id => "#{row}_#{column}"}= 'X' if @grid.cell_at(row, column).alive?
+					%div{:id => "#{row}_#{column}", :class => "#{cell_status(row, column)}"}

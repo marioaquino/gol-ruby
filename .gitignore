@@ -1,3 +1,4 @@
 rerun.txt
 webrat.log
 .bundle
+.DS_Store

@@ -77,7 +77,8 @@ end
 Then /^I should see the following live and dead cells on the grid:$/ do |table|
   table.rows.each_with_index do |row, row_index|
     row.each_with_index do |column, column_index|
-      find("//div[@id='#{row_index}_#{column_index}']").text.should == column
+      status = column == 'X' ? 'alive' : 'dead'
+      find("//div[@id='#{row_index}_#{column_index}']")['class'].should == status
     end
   end
 end

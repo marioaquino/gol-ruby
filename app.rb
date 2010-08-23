@@ -21,3 +21,7 @@ end
 def parse(x_y)
   x_y.split('_').map{|num| num.to_i }
 end
+
+def cell_status(row, column)
+  @grid.cell_at(row, column).alive? ? 'alive' : 'dead'
+end
