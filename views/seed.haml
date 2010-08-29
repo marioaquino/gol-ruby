@@ -2,10 +2,16 @@
 %form{:method => 'POST', :action => '/evolution'}
 	%input{:name => 'rows', :type => 'hidden', :value => @rows}
 	%input{:name => 'columns', :type => 'hidden', :value => @columns}
-	%table{:name => 'grid', :border => '1'}
-		- (0...@rows).each do |row|
-			%tr
-				- (0...@columns).each do |column|
-					%td
-						%input{:id => "#{row}_#{column}", :name => "#{row}_#{column}", :type => 'checkbox'}
+	%div{:id => 'grid'}
+		%table{:border => '1', :name => 'seed-grid'}
+			- (0...@rows).each do |row|
+				%tr
+					- (0...@columns).each do |column|
+						%td
+							%input{:name => "#{row}_#{column}", :type => 'hidden'}
+							%div{:id => "cell#{row}_#{column}", :class => 'flipbox'}
+								%a{:href => "#", :title => "#{row}_#{column}"} X
 	%input{:type => 'submit', :value => 'Seed Grid'}
+	
+%script{:type => "text/javascript",
+        :src  => "javascripts/seed.js"}

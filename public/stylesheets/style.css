@@ -10,3 +10,38 @@ div {
 .dead {
 	background-color: white;
 }
+
+.flipbox {
+  background-color: #ff9000;
+  color: #ffffff;
+}
+#grid {
+  text-align: center;
+}
+#grid a {
+/*  padding: 5px 15px;*/
+/*  background: #1e90ff;*/
+/*  border: 2px solid #1e90ff;*/
+/*  border-radius: 2px;*/
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+/*  font-size: 1em;*/
+  font-family: Helvetica, Tahoma, Verdana, sans-serif;
+/*  line-height: 30px;*/
+/*  height: 30px;*/
+/*  -moz-border-radius: 2px;*/
+/*  -webkit-border-radius: 2px;*/
+/*  -moz-box-shadow: 1px 1px 2px #999999;*/
+/*  -webkit-box-shadow: 1px 1px 2px #999999;*/
+/*  -webkit-transition-duration: 1s;*/
+}
+#grid a:hover {
+  background-color: #ff9000;
+/*  border: 2px solid #ff9000;*/
+}
+#grid .revert {
+  background-color: #ff9000;
+/*  border: 2px solid #ff9000;*/
+  display: none;
+}

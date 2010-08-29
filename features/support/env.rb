@@ -19,10 +19,25 @@ require 'sinatra'
 require 'haml'
 
 require 'app'
+
+Sinatra::Application.set(:environment, :test)
 Sinatra::Application.app_file = 'app'
 
+require 'capybara'
 require 'capybara/cucumber'
+require 'spec'
+
 Capybara.app = Sinatra::Application.new
 Capybara.javascript_driver = :envjs
+
+class GoLWorld
+  include Capybara
+  include Spec::Expectations
+  include Spec::Matchers
+end
+
+World do
+  GoLWorld.new
+end
 
 require 'ruby-debug'

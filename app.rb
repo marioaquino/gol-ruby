@@ -12,7 +12,7 @@ post '/evolution' do
   rows = params.delete('rows').to_i
   columns = params.delete('columns').to_i
   @grid = Grid.new(rows, columns)
-  live_cells = params.map { |key, value| parse(key) }
+  live_cells = params.map{|key, value| parse(key) if value == 'true'}.compact
   @grid.seed(live_cells)
   @grid.evolve
   haml :evolution

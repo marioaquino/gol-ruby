@@ -5,23 +5,24 @@ Feature: Viewing Game of Life on the web
 
   Scenario: View Game of Life grid setup
     Given I have a browser
-    When I visit "/"
+    When I go to "the home page"
     Then I should see "Welcome to Game of Life"
   	And I should see "Setup board with rows and columns"
-		And I should see a field labeled "Rows:" with the value "0"
-		And I should see a field labeled "Columns:" with the value "0"
+		And the "Rows:" field should contain "0"
+		And the "Columns:" field should contain "0"
 		And I should see a "Create Grid" button
   
 	Scenario: Create a grid of rows and columns
-	  Given I visit "/"
-	  When I set the field labeled "Rows:" with the value "6"
-	  And I set the field labeled "Columns:" with the value "6"
-		And I press the "Create Grid" button
-		Then I should be on the "/seed" page
+	  Given I go to "the home page"
+	  When I fill in "Rows:" with "6"
+	  And I fill in "Columns:" with "6"
+		And I press "Create Grid"
+		Then I should be on "the seed page"
 		And I should see "Click on the white squares to seed the grid with live cells"
-		And I should see a table named "grid" with 6 rows and 6 columns
+		And I should see a table named "seed-grid" with 6 rows and 6 columns
 		And I should see a "Seed Grid" button
 	
+	@javascript
 	Scenario: Selecting the live cells to seed the grid
 	  Given I have setup a grid with 6 rows and 6 columns
 	  When I click on the cell at 1,2
@@ -29,7 +30,8 @@ Feature: Viewing Game of Life on the web
 		And I click on the cell at 3,2
 	  Then the cells at "1,2 & 2,3 & 3,2" should be alive
 		And all other cells should be dead
-
+		
+	@javascript
 	Scenario: Starting evolution on a seeded grid
 	  Given I have seeded a 6 by 6 grid with live cells at the following locations:
 			| | | | | | |
@@ -38,8 +40,8 @@ Feature: Viewing Game of Life on the web
 			| | |X| | | |
 			| |X| | | | |
 			| | | | | | |
-	  When I press the "Seed Grid" button
-		Then I should be on the "/evolution" page
+	  When I press "Seed Grid"
+		Then I should be on "the evolution page"
 		And I should see a table named "evolving" with 6 rows and 6 columns
 	  And I should see the following live and dead cells on the grid:
 			| | | | | | |
