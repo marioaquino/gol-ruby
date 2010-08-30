@@ -2,15 +2,15 @@
 %form{:method => 'POST', :action => '/evolution'}
 	%input{:name => 'rows', :type => 'hidden', :value => @rows}
 	%input{:name => 'columns', :type => 'hidden', :value => @columns}
-	%div{:id => 'grid'}
-		%table{:border => '1', :name => 'seed-grid'}
-			- (0...@rows).each do |row|
-				%tr
-					- (0...@columns).each do |column|
-						%td
-							%input{:name => "#{row}_#{column}", :type => 'hidden'}
-							%div{:id => "cell#{row}_#{column}", :class => 'flipbox'}
-								%a{:href => "#", :title => "#{row}_#{column}"} X
+	%table{:border => '1', :name => 'seed-grid'}
+		- (0...@rows).each do |row|
+			%tr
+				- (0...@columns).each do |column|
+					%td
+						%input{:name => "#{row}_#{column}", :type => 'hidden'}
+						%div{:class => "click panel", :id => "#{row}_#{column}"}
+							%div{:class => "front"}
+							%div{:class => "back"}
 	%input{:type => 'submit', :value => 'Seed Grid'}
 	
 %script{:type => "text/javascript",

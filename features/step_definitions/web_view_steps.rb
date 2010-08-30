@@ -24,7 +24,7 @@ Given /^I have setup a grid with (\d+) rows and (\d+) columns$/ do |rows, cols|
 end
 
 When /^I click on the cell at (\d+),(\d+)$/ do |x, y|
-  click_link "#{x}_#{y}"
+  page.find("//div[@id='#{x}_#{y}']").click
 end
 
 Then /^the cells at "([^"]*)" should be alive$/ do |live_cells|
