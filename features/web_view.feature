@@ -19,7 +19,7 @@ Feature: Viewing Game of Life on the web
 		And I press "Create Grid"
 		Then I should be on "the seed page"
 		And I should see "Click on the white squares to seed the grid with live cells"
-		And I should see a table named "seed-grid" with 6 rows and 6 columns
+		And I should see a table with 6 rows and 6 columns
 		And I should see a "Seed Grid" button
 	
 	@javascript
@@ -42,7 +42,7 @@ Feature: Viewing Game of Life on the web
 			| | | | | | |
 	  When I press "Seed Grid"
 		Then I should be on "the evolution page"
-		And I should see a table named "evolving" with 6 rows and 6 columns
+		And I should see a table with 6 rows and 6 columns
 	  And I should see the following live and dead cells on the grid:
 			| | | | | | |
 			| |X|X| | | |

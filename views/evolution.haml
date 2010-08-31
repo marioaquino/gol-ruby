@@ -1,6 +1,8 @@
-%table{:name => 'evolving', :border => '1'}
+%table{:name => 'evolving'}
 	- (0...@grid.rows).each do |row|
 		%tr
 			- (0...@grid.columns).each do |column|
 				%td
-					%div{:id => "#{row}_#{column}", :class => "#{cell_status(row, column)}"}
+					%div{:class => "#{panel_class(row, column)}", :id => "#{row}_#{column}"}
+						%div{:class => "dead"}
+						%div{:class => "alive"}

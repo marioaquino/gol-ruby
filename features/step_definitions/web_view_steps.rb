@@ -6,8 +6,8 @@ Then /^I should see a "([^"]*)" button$/ do |button_text|
   find("//input[@value='#{button_text}']").should_not be_nil
 end
 
-Then /^I should see a table named "([^"]*)" with (\d+) rows and (\d+) columns$/ do |name, rows, cols|
-  tables = all("//table[@name = '#{name}']")
+Then /^I should see a table with (\d+) rows and (\d+) columns$/ do |rows, cols|
+  tables = all("//table")
   tables.should_not be_empty
   tables.each do |table|
     all_rows = table.all(".//tr")
@@ -54,8 +54,8 @@ end
 Then /^I should see the following live and dead cells on the grid:$/ do |table|
   table.rows.each_with_index do |row, row_index|
     row.each_with_index do |column, column_index|
-      status = column == 'X' ? 'alive' : 'dead'
-      find("//div[@id='#{row_index}_#{column_index}']")['class'].should == status
+      panel_class = column == 'X' ? 'panel flip' : 'panel'
+      page.find("//div[@id='#{row_index}_#{column_index}']")['class'].should == panel_class
     end
   end
 end

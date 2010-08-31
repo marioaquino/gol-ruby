@@ -22,6 +22,6 @@ def parse(x_y)
   x_y.split('_').map{|num| num.to_i }
 end
 
-def cell_status(row, column)
-  @grid.cell_at(row, column).alive? ? 'alive' : 'dead'
+def panel_class(row, column)
+  "panel#{' flip' if @grid.cell_at(row, column).alive?}"
 end
