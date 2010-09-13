@@ -59,3 +59,7 @@ Then /^I should see the following live and dead cells on the grid:$/ do |table|
     end
   end
 end
+
+When /^I wait (\d+) seconds$/ do |time_in_secs|
+  sleep time_in_secs.to_i
+end

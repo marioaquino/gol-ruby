@@ -1,8 +1,16 @@
 %table{:name => 'evolving'}
-	- (0...@grid.rows).each do |row|
+	- (0...@rows).each do |row|
 		%tr
-			- (0...@grid.columns).each do |column|
+			- (0...@columns).each do |column|
 				%td
 					%div{:class => "#{panel_class(row, column)}", :id => "#{row}_#{column}"}
 						%div{:class => "dead"}
 						%div{:class => "alive"}
+
+%input{:type => 'button', :value => 'Pause Evolution', :id => 'pauseButton'}
+
+:javascript
+	var rows = '#{@rows}';
+	var columns = '#{@columns}';
+
+%script{:src => "/javascripts/evolution.js"}

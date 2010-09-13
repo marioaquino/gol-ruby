@@ -51,7 +51,25 @@ Feature: Viewing Game of Life on the web
 			| | | | | | |
 			| | | | | | |
 		
-	
+	@selenium
+	Scenario: Pausing evolution
+	  Given I have seeded a 6 by 6 grid with live cells at the following locations:
+			| | | | | | |
+			| |X| | | | |
+			|X| |X|X| | |
+			| | |X| | | |
+			| |X| | | | |
+			| | | | | | |
+	  When I press "Seed Grid"
+		And I wait 3 seconds
+	  And I press "Pause Evolution"
+	  Then I should see the following live and dead cells on the grid:
+			| | |X| | | |
+			| | |X| | | |
+			| |X| | | | |
+			| | | | | | |
+			| | | | | | |
+			| | | | | | |
 	
 	
 	
