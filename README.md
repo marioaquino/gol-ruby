@@ -23,7 +23,8 @@ Then, (to start the web server)
 
 Then, (to start the web socket server)
 
-`$> cd lib`
-`$> ruby websocket.rb`
+`$> cd lib  
+$> ruby websocket.rb  
+`
 
 Then... point your CSS3/WebSockets compliant browser (Safari 5.x or higher, Chrome 6.x or higher) to: http://localhost:9292
