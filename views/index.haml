@@ -1,11 +1,12 @@
-%h2	Setup board with rows and columns
 %form{:method => 'GET', :action => "/seed"}
-	%ul
-		%li
+	%fieldset	
+		%legend Setup board
+		%p
 			%label{:for => "rows"} Rows:
 			%input{:type => "text", :id => "rows", :name => "rows", :value => "0"}
-		%li				
+		%p				
 			%label{:for => "columns"} Columns:
 			%input{:type => "text", :id => "columns", :name => "columns", :value => "0"}
-	%input{:type => "submit", :value => "Create Grid"}
+		%p{:class => 'submit'}
+			%input{:type => "submit", :value => "Create Grid"}
 			

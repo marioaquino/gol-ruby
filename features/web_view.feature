@@ -6,8 +6,8 @@ Feature: Viewing Game of Life on the web
   Scenario: View Game of Life grid setup
     Given I have a browser
     When I go to "the home page"
-    Then I should see "Welcome to Game of Life"
-  	And I should see "Setup board with rows and columns"
+    Then I should see "Game of Life"
+  	And I should see "Setup board"
 		And the "Rows:" field should contain "0"
 		And the "Columns:" field should contain "0"
 		And I should see a "Create Grid" button

@@ -1,4 +1,3 @@
-%h2 Click on the white squares to seed the grid with live cells
 %form{:method => 'POST', :action => '/evolution'}
 	%input{:name => 'rows', :type => 'hidden', :value => @rows}
 	%input{:name => 'columns', :type => 'hidden', :value => @columns}
@@ -11,7 +10,11 @@
 						%div{:class => "click panel", :id => "#{row}_#{column}"}
 							%div{:class => "dead"}
 							%div{:class => "alive"}
-	%input{:type => 'submit', :value => 'Seed Grid'}
+	%ul
+		%li
+			%input{:type => 'submit', :class => 'left', :value => 'Seed Grid'}
+		%li
+			%div{:class => 'instructions'} Click on the white squares to seed the grid with live cells
 	
 %script{:type => "text/javascript",
         :src  => "javascripts/seed.js"}
