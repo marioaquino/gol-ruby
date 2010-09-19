@@ -19,7 +19,7 @@ EventMachine.run do
       when 'seed'
         rows = evt['rows'].to_i
         columns = evt['columns'].to_i
-        @grid = Grid.new(rows, columns)
+        @grid = GOL::Grid.new(rows, columns)
         live_seed = evt['alive'].map{|cell| cell.split('_').map{|num| num.to_i }}
         @grid.seed(live_seed)
       when 'step'

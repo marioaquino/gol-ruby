@@ -1,4 +1,4 @@
-require 'spec_config'
+require File.join(File.dirname(__FILE__), '..', 'spec_helper')
 
 describe GOL::GridWalker do
   it "should know a 1x1 grid has no neighbors" do

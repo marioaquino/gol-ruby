@@ -1,4 +1,4 @@
-require 'spec_config'
+require File.join(File.dirname(__FILE__), '..', 'spec_helper')
 
 def mock_cell(name, alive_return)
   m = mock(name)

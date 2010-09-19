@@ -11,7 +11,7 @@ When /^I create the grid$/ do
 end
 
 def setup_grid(rows, columns)
-  @grid = Grid.new rows.to_i, columns.to_i
+  @grid = GOL::Grid.new rows.to_i, columns.to_i
 end
 
 Then /^the grid should have (\d+) rows and (\d+) columns$/ do |rows, columns|
